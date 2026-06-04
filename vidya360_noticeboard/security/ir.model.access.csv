@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_notice_user,vidya.notice,model_vidya_notice,base.group_user,1,1,1,1
+access_vidya_event_user,vidya.event,model_vidya_event,base.group_user,1,1,1,1

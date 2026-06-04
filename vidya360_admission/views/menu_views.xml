@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_admissions" name="Admissions" parent="vidya360_core.menu_vidya360_root" sequence="10"/>
+    
+    <menuitem id="menu_vidya360_admissions_pipeline" name="Pipeline" parent="menu_vidya360_admissions" action="action_vidya_admission" sequence="10"/>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu -->
+    <menuitem id="menu_vidya360_root" name="Vidya 360" web_icon="vidya360_core,static/description/icon.png" sequence="10"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_vidya360_configuration" name="Configuration" parent="menu_vidya360_root" sequence="100" groups="group_vidya360_admin_staff"/>
+    
+    <!-- Academics Config -->
+    <menuitem id="menu_vidya360_config_academics" name="Academics" parent="menu_vidya360_configuration" sequence="10"/>
+</odoo>

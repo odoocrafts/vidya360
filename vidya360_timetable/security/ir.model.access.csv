@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_room,vidya.room,model_vidya_room,base.group_user,1,1,1,1
+access_vidya_period,vidya.period,model_vidya_period,base.group_user,1,1,1,1
+access_vidya_timetable,vidya.timetable,model_vidya_timetable,base.group_user,1,1,1,1
+access_vidya_timetable_line,vidya.timetable.line,model_vidya_timetable_line,base.group_user,1,1,1,1

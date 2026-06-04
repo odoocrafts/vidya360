@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_library_category,vidya.library.category,model_vidya_library_category,base.group_user,1,1,1,1
+access_vidya_library_book,vidya.library.book,model_vidya_library_book,base.group_user,1,1,1,1
+access_vidya_library_issue,vidya.library.issue,model_vidya_library_issue,base.group_user,1,1,1,1

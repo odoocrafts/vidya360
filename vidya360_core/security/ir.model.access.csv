@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_academic_year_admin,vidya.academic.year admin,model_vidya_academic_year,group_vidya360_admin,1,1,1,1
+access_vidya_academic_year_user,vidya.academic.year user,model_vidya_academic_year,base.group_user,1,0,0,0
+access_vidya_academic_term_admin,vidya.academic.term admin,model_vidya_academic_term,group_vidya360_admin,1,1,1,1
+access_vidya_academic_term_user,vidya.academic.term user,model_vidya_academic_term,base.group_user,1,0,0,0
+access_vidya_class_level_admin,vidya.class.level admin,model_vidya_class_level,group_vidya360_admin,1,1,1,1
+access_vidya_class_level_user,vidya.class.level user,model_vidya_class_level,base.group_user,1,0,0,0
+access_vidya_section_admin,vidya.section admin,model_vidya_section,group_vidya360_admin,1,1,1,1
+access_vidya_section_user,vidya.section user,model_vidya_section,base.group_user,1,0,0,0
+access_vidya_subject_admin,vidya.subject admin,model_vidya_subject,group_vidya360_admin,1,1,1,1
+access_vidya_subject_user,vidya.subject user,model_vidya_subject,base.group_user,1,0,0,0
+access_vidya_subject_group_admin,vidya.subject.group admin,model_vidya_subject_group,group_vidya360_admin,1,1,1,1
+access_vidya_subject_group_user,vidya.subject.group user,model_vidya_subject_group,base.group_user,1,0,0,0

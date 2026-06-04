@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_hostel_building,vidya.hostel.building,model_vidya_hostel_building,base.group_user,1,1,1,1
+access_vidya_hostel_room,vidya.hostel.room,model_vidya_hostel_room,base.group_user,1,1,1,1
+access_vidya_hostel_allocation,vidya.hostel.allocation,model_vidya_hostel_allocation,base.group_user,1,1,1,1

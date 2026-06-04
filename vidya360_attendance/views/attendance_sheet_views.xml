@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_attendance_sheet_form" model="ir.ui.view">
+        <field name="name">vidya.attendance.sheet.form</field>
+        <field name="model">vidya.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_load_students" string="Load Students" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="class_id" readonly="state != 'draft'"/>
+                            <field name="section_id" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Attendances">
+                            <field name="attendance_ids" readonly="state != 'draft'">
+                                <list editable="bottom" decoration-danger="status=='absent'" decoration-warning="status=='half_day'" decoration-info="status=='leave'">
+                                    <field name="student_id" readonly="1"/>
+                                    <field name="date" column_invisible="1"/>
+                                    <field name="status"/>
+                                    <field name="remarks"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vidya_attendance_sheet_list" model="ir.ui.view">
+        <field name="name">vidya.attendance.sheet.list</field>
+        <field name="model">vidya.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state=='done'">
+                <field name="name"/>
+                <field name="class_id"/>
+                <field name="section_id"/>
+                <field name="date"/>
+                <field name="state" widget="badge" decoration-success="state=='done'" decoration-info="state=='draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vidya_attendance_sheet" model="ir.actions.act_window">
+        <field name="name">Attendance Sheets</field>
+        <field name="res_model">vidya.attendance.sheet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

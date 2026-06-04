@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_vidya_certificate" model="ir.actions.report">
+        <field name="name">Print Certificate</field>
+        <field name="model">vidya.certificate.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">vidya360_certificate.report_certificate_template</field>
+        <field name="report_file">vidya360_certificate.report_certificate_template</field>
+        <field name="print_report_name">'Certificate - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_vidya_certificate_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_certificate_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: Arial, sans-serif; font-size: 18px; line-height: 2;">
+                        <div class="text-center mt-5 mb-5">
+                            <h1 style="text-decoration: underline; font-weight: bold;">
+                                <t t-if="doc.certificate_type == 'bonafide'">BONAFIDE CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'conduct'">CONDUCT CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'character'">CHARACTER CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'study'">STUDY CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'fee_paid'">FEE PAID CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'tc'">TRANSFER CERTIFICATE</t>
+                                <t t-if="doc.certificate_type == 'course_completion'">COURSE COMPLETION CERTIFICATE</t>
+                            </h1>
+                        </div>
+                        
+                        <div class="mt-5 mb-5 text-justify">
+                            <t t-if="doc.certificate_type == 'bonafide'">
+                                <p>
+                                    This is to certify that <strong><t t-esc="doc.student_id.name"/></strong>, 
+                                    Son/Daughter of <strong><t t-esc="doc.student_id.father_name or doc.student_id.mother_name"/></strong>,
+                                    is a bonafide student of this institution studying in Class <strong><t t-esc="doc.class_id.name"/></strong>
+                                    for the Academic Year <strong><t t-esc="doc.academic_year_id.name"/></strong>.
+                                    <br/><br/>
+                                    His/Her date of birth as per school records is <strong><t t-esc="doc.student_id.date_of_birth" t-options='{"widget": "date", "format": "dd-MMM-yyyy"}'/></strong>.
+                                </p>
+                            </t>
+
+                            <t t-if="doc.certificate_type in ('conduct', 'character')">
+                                <p>
+                                    This is to certify that <strong><t t-esc="doc.student_id.name"/></strong>, 
+                                    Son/Daughter of <strong><t t-esc="doc.student_id.father_name or doc.student_id.mother_name"/></strong>,
+                                    has been a student of this institution. 
+                                    <br/><br/>
+                                    During his/her tenure, we found his/her character and conduct to be 
+                                    <strong style="text-transform: capitalize;"><t t-esc="doc.character_evaluation"/></strong>.
+                                </p>
+                            </t>
+
+                            <t t-if="doc.certificate_type == 'study'">
+                                <p>
+                                    This is to certify that <strong><t t-esc="doc.student_id.name"/></strong>, 
+                                    bearing Admission No. <strong><t t-esc="doc.student_id.admission_no"/></strong>,
+                                    is actively studying in Class <strong><t t-esc="doc.class_id.name"/></strong>
+                                    during the Academic Year <strong><t t-esc="doc.academic_year_id.name"/></strong>.
+                                </p>
+                            </t>
+
+                            <t t-if="doc.certificate_type == 'fee_paid'">
+                                <p>
+                                    This is to certify that we have received an amount of <strong><t t-esc="doc.fee_amount_paid" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/></strong> 
+                                    from <strong><t t-esc="doc.student_id.name"/></strong> 
+                                    (Admission No: <strong><t t-esc="doc.student_id.admission_no"/></strong>) 
+                                    towards the school tuition fees for the Financial Year <strong><t t-esc="doc.financial_year"/></strong>.
+                                </p>
+                            </t>
+
+                            <t t-if="doc.certificate_type == 'tc'">
+                                <p>
+                                    This is to certify that <strong><t t-esc="doc.student_id.name"/></strong>, 
+                                    Admission No. <strong><t t-esc="doc.student_id.admission_no"/></strong>,
+                                    has attended this institution.
+                                </p>
+                                <ul>
+                                    <li><strong>Last Date of Attendance:</strong> <t t-esc="doc.last_date_of_attendance" t-options='{"widget": "date", "format": "dd-MMM-yyyy"}'/></li>
+                                    <li><strong>Reason for Leaving:</strong> <t t-esc="doc.reason_for_leaving"/></li>
+                                    <li><strong>Promoted to Class:</strong> <t t-if="doc.promoted_to_class"><t t-esc="doc.promoted_to_class"/></t><t t-else="">N/A</t></li>
+                                    <li><strong>All Dues Paid:</strong> <t t-if="doc.all_dues_paid">Yes</t><t t-else="">No</t></li>
+                                </ul>
+                            </t>
+
+                            <t t-if="doc.certificate_type == 'course_completion'">
+                                <p>
+                                    This is to certify that <strong><t t-esc="doc.student_id.name"/></strong> 
+                                    has successfully completed the curriculum for Class <strong><t t-esc="doc.class_id.name"/></strong>
+                                    during the Academic Year <strong><t t-esc="doc.academic_year_id.name"/></strong>.
+                                    We wish him/her success in all future endeavors.
+                                </p>
+                            </t>
+                        </div>
+                        
+                        <div class="row mt-5 pt-5 text-center">
+                            <div class="col-6">
+                                <p>Date: <strong><t t-esc="doc.date_issue or datetime.datetime.now()" t-options='{"widget": "date", "format": "dd-MMM-yyyy"}'/></strong></p>
+
+                            </div>
+                            <div class="col-6">
+                                <br/><br/>
+                                <strong>Principal Signature</strong>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

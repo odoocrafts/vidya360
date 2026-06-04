@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu for Timetable App -->
+    <menuitem id="menu_vidya360_timetable_root" name="Timetable" web_icon="vidya360_timetable,static/description/icon.png" sequence="30"/>
+
+    <!-- Top Level Menus -->
+    <menuitem id="menu_vidya360_timetable_schedules" name="Schedules" parent="menu_vidya360_timetable_root" sequence="10"/>
+    <menuitem id="menu_vidya360_timetable_config" name="Configuration" parent="menu_vidya360_timetable_root" sequence="100"/>
+</odoo>

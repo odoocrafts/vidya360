@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_vidya_admin,crm.lead vidya admin,crm.model_crm_lead,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_crm_lead_vidya_office,crm.lead vidya office,crm.model_crm_lead,vidya360_core.group_vidya360_office_staff,1,1,1,1

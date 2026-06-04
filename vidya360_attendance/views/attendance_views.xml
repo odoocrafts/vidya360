@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_attendance_list" model="ir.ui.view">
+        <field name="name">vidya.attendance.list</field>
+        <field name="model">vidya.attendance</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" decoration-danger="status=='absent'" decoration-warning="status=='half_day'" decoration-info="status=='leave'">
+                <field name="date"/>
+                <field name="student_id"/>
+                <field name="status"/>
+                <field name="remarks"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vidya_attendance_search" model="ir.ui.view">
+        <field name="name">vidya.attendance.search</field>
+        <field name="model">vidya.attendance</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="student_id"/>
+                <field name="date"/>
+                <filter string="Today" name="today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Absents" name="absents" domain="[('status', '=', 'absent')]"/>
+                <group name="group_by">
+                    <filter string="Student" name="group_student" context="{'group_by': 'student_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vidya_attendance" model="ir.actions.act_window">
+        <field name="name">Student Attendance</field>
+        <field name="res_model">vidya.attendance</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="view_vidya_attendance_search"/>
+    </record>
+</odoo>

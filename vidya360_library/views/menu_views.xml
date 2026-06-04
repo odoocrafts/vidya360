@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_library_root" name="Library" web_icon="vidya360_library,static/description/icon.png" sequence="60"/>
+
+    <menuitem id="menu_vidya360_library_books" name="Books" parent="menu_vidya360_library_root" sequence="10"/>
+    <menuitem id="menu_vidya360_library_book_list" name="Catalog" parent="menu_vidya360_library_books" action="action_vidya_library_book" sequence="10"/>
+
+    <menuitem id="menu_vidya360_library_operations" name="Operations" parent="menu_vidya360_library_root" sequence="20"/>
+    <menuitem id="menu_vidya360_library_issue_list" name="Issues &amp; Returns" parent="menu_vidya360_library_operations" action="action_vidya_library_issue" sequence="10"/>
+
+    <menuitem id="menu_vidya360_library_config" name="Configuration" parent="menu_vidya360_library_root" sequence="100"/>
+    <menuitem id="menu_vidya360_library_categories" name="Book Categories" parent="menu_vidya360_library_config" action="action_vidya_library_category" sequence="10"/>
+</odoo>

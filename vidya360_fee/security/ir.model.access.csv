@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_fee_group,vidya.fee.group,model_vidya_fee_group,base.group_user,1,1,1,1
+access_vidya_fee_structure,vidya.fee.structure,model_vidya_fee_structure,base.group_user,1,1,1,1
+access_vidya_fee_structure_line,vidya.fee.structure.line,model_vidya_fee_structure_line,base.group_user,1,1,1,1
+access_vidya_student_fee_discount,vidya.student.fee.discount,model_vidya_student_fee_discount,base.group_user,1,1,1,1
+access_vidya_fee_generate_wizard,vidya.fee.generate.wizard,model_vidya_fee_generate_wizard,base.group_user,1,1,1,1

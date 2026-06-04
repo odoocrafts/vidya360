@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_noticeboard_root" name="Noticeboard" web_icon="vidya360_noticeboard,static/description/icon.png" sequence="70"/>
+
+    <menuitem id="menu_vidya360_notices" name="Notices" parent="menu_vidya360_noticeboard_root" action="action_vidya_notice" sequence="10"/>
+    <menuitem id="menu_vidya360_events" name="School Calendar" parent="menu_vidya360_noticeboard_root" action="action_vidya_event" sequence="20"/>
+</odoo>

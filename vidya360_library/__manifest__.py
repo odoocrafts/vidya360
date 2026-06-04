@@ -1,0 +1,21 @@
+{
+    'name': 'Vidya 360 Library Management',
+    'version': '19.0.1.0.0',
+    'summary': 'Manage school library, books, and checkouts.',
+    'description': 'Library Management for Vidya 360.',
+    'category': 'Education',
+    'author': 'Vidya 360',
+    'website': 'https://vidya360.com',
+    'license': 'LGPL-3',
+    'depends': ['vidya360_core', 'vidya360_student', 'vidya360_staff', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/library_category_views.xml',
+        'views/library_book_views.xml',
+        'views/library_issue_views.xml',
+        'views/menu_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

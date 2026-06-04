@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_student_admin,vidya.student admin,model_vidya_student,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_vidya_student_principal,vidya.student principal,model_vidya_student,vidya360_core.group_vidya360_principal,1,1,1,1
+access_vidya_student_office,vidya.student office,model_vidya_student,vidya360_core.group_vidya360_office_staff,1,1,1,1
+access_vidya_student_accounts,vidya.student accounts,model_vidya_student,vidya360_core.group_vidya360_accounts,1,0,0,0
+access_vidya_student_teacher,vidya.student teacher,model_vidya_student,vidya360_core.group_vidya360_class_teacher,1,1,0,0
+access_vidya_student_student,vidya.student student,model_vidya_student,vidya360_core.group_vidya360_student,1,0,0,0
+access_vidya_student_parent,vidya.student parent,model_vidya_student,vidya360_core.group_vidya360_parent,1,0,0,0

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_fee_generate_wizard_form" model="ir.ui.view">
+        <field name="name">vidya.fee.generate.wizard.form</field>
+        <field name="model">vidya.fee.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Fee Invoices">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="academic_year_id"/>
+                            <field name="class_id"/>
+                        </group>
+                        <group>
+                            <field name="frequency"/>
+                            <field name="term_id" invisible="frequency != 'term'" required="frequency == 'term'"/>
+                            <field name="month" invisible="frequency != 'monthly'" required="frequency == 'monthly'"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Generate Invoices" name="generate_invoices" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vidya_fee_generate_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Fee Invoices</field>
+        <field name="res_model">vidya.fee.generate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

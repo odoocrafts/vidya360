@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_student_form_inherit_fee" model="ir.ui.view">
+        <field name="name">vidya.student.form.inherit.fee</field>
+        <field name="model">vidya.student</field>
+        <field name="inherit_id" ref="vidya360_student.view_vidya_student_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Fees &amp; Discounts">
+                    <field name="discount_ids">
+                        <list editable="bottom">
+                            <field name="fee_group_id"/>
+                            <field name="discount_type"/>
+                            <field name="discount_value"/>
+                            <field name="reason"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Deprecated groups from Phase 1 -->
+        <record id="vidya360_core.group_vidya360_teacher" model="res.groups">
+            <field name="name">DEPRECATED Vidya 360 / Teacher</field>
+        </record>
+        <record id="vidya360_core.group_vidya360_admin" model="res.groups">
+            <field name="name">DEPRECATED Vidya 360 / Administrator</field>
+        </record>
+
+        <!-- Base Roles -->
+        <record id="group_vidya360_student" model="res.groups">
+            <field name="name">Vidya 360 / Student</field>
+            <field name="implied_ids" eval="[Command.link(ref('base.group_portal'))]"/>
+        </record>
+
+        <record id="group_vidya360_parent" model="res.groups">
+            <field name="name">Vidya 360 / Parent</field>
+            <field name="implied_ids" eval="[Command.link(ref('base.group_portal'))]"/>
+        </record>
+
+        <!-- Internal Staff Roles -->
+        <record id="group_vidya360_class_teacher" model="res.groups">
+            <field name="name">Vidya 360 / Class Teacher</field>
+            <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_vidya360_office_staff" model="res.groups">
+            <field name="name">Vidya 360 / Office Staff</field>
+            <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_vidya360_accounts" model="res.groups">
+            <field name="name">Vidya 360 / Accounts Staff</field>
+            <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Management Roles -->
+        <record id="group_vidya360_admin_staff" model="res.groups">
+            <field name="name">Vidya 360 / Admin Staff</field>
+            <field name="implied_ids" eval="[
+                Command.link(ref('group_vidya360_office_staff')),
+                Command.link(ref('group_vidya360_accounts')),
+                Command.link(ref('group_vidya360_class_teacher'))
+            ]"/>
+        </record>
+
+        <record id="group_vidya360_principal" model="res.groups">
+            <field name="name">Vidya 360 / Principal</field>
+            <field name="implied_ids" eval="[Command.link(ref('group_vidya360_admin_staff'))]"/>
+            <field name="user_ids" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

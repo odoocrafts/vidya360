@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_hostel_root" name="Hostel" web_icon="vidya360_hostel,static/description/icon.png" sequence="80"/>
+
+    <menuitem id="menu_vidya360_hostel_allocations" name="Allocations" parent="menu_vidya360_hostel_root" action="action_vidya_hostel_allocation" sequence="10"/>
+    <menuitem id="menu_vidya360_hostel_rooms" name="Rooms" parent="menu_vidya360_hostel_root" action="action_vidya_hostel_room" sequence="20"/>
+    
+    <menuitem id="menu_vidya360_hostel_configuration" name="Configuration" parent="menu_vidya360_hostel_root" sequence="100"/>
+    <menuitem id="menu_vidya360_hostel_buildings_config" name="Hostel Buildings" parent="menu_vidya360_hostel_configuration" action="action_vidya_hostel_building" sequence="10"/>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crm_lead_form_inherit_vidya" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.vidya</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_convert_to_student" string="Convert to Student" type="object" class="oe_highlight" invisible="vidya_student_id or type == 'opportunity' and probability == 100"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">is_student_enquiry</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='internal_notes']" position="before">
+                <page string="Admission Details" name="admission_details" invisible="not is_student_enquiry">
+                    <group>
+                        <group>
+                            <field name="is_student_enquiry" invisible="1"/>
+                            <field name="student_name" required="is_student_enquiry"/>
+                            <field name="target_class_id"/>
+                            <field name="target_academic_year_id"/>
+                        </group>
+                        <group>
+                            <field name="father_name"/>
+                            <field name="mother_name"/>
+                            <field name="previous_school"/>
+                            <field name="vidya_student_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Kanban Quick Create View Modification -->
+    <record id="quick_create_opportunity_form_inherit_vidya" model="ir.ui.view">
+        <field name="name">crm.lead.form.quick_create.inherit.vidya</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <field name="is_student_enquiry" invisible="1"/>
+            </xpath>
+            <xpath expr="//div[field[@name='commercial_partner_id']]" position="attributes">
+                <attribute name="invisible">is_student_enquiry</attribute>
+            </xpath>
+            <xpath expr="//div[field[@name='partner_id']]" position="attributes">
+                <attribute name="invisible">is_student_enquiry</attribute>
+            </xpath>
+            <xpath expr="//div[div/field[@name='expected_revenue']]" position="attributes">
+                <attribute name="invisible">is_student_enquiry</attribute>
+            </xpath>
+            <xpath expr="//div[field[@name='name']]" position="after">
+                <div class="d-flex align-items-center" colspan="2" invisible="not is_student_enquiry">
+                    <i class="fa fa-graduation-cap" title="Target Class" style="width: 20px; text-align: center; margin-right: 5px;"/>
+                    <field name="target_class_id" placeholder="Target Class" nolabel="1" class="o_field_highlight w-100 mb-0" options="{'no_create': True, 'no_open': True}"/>
+                </div>
+                <div class="d-flex align-items-center" colspan="2" invisible="not is_student_enquiry">
+                    <i class="fa fa-user" title="Student Name" style="width: 20px; text-align: center; margin-right: 5px;"/>
+                    <field name="student_name" placeholder="Student Name" nolabel="1" class="o_field_highlight w-100 mb-0"/>
+                </div>
+                <div class="d-flex align-items-center" colspan="2" invisible="not is_student_enquiry">
+                    <i class="fa fa-male" title="Father Name" style="width: 20px; text-align: center; margin-right: 5px;"/>
+                    <field name="father_name" placeholder="Father Name" nolabel="1" class="o_field_highlight w-100 mb-0"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="placeholder">Enquiry Reference</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_vidya_admission" model="ir.actions.act_window">
+        <field name="name">Admissions Pipeline</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,list,graph,pivot,calendar,form,activity</field>
+        <field name="domain">[('is_student_enquiry', '=', True)]</field>
+        <field name="context">{'default_is_student_enquiry': True}</field>
+    </record>
+</odoo>

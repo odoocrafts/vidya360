@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu for Fee App -->
+    <menuitem id="menu_vidya360_fee_root" name="Fees" web_icon="vidya360_fee,static/description/icon.png" sequence="40"/>
+
+    <!-- Top Level Menus -->
+    <menuitem id="menu_vidya360_fee_invoices" name="Invoices" parent="menu_vidya360_fee_root" sequence="10"/>
+    <menuitem id="menu_vidya360_fee_config" name="Configuration" parent="menu_vidya360_fee_root" sequence="100"/>
+
+    <!-- Link to account.move -->
+    <record id="action_vidya_fee_invoices" model="ir.actions.act_window">
+        <field name="name">Student Invoices</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+        <field name="context">{'default_move_type': 'out_invoice'}</field>
+    </record>
+
+    <menuitem id="menu_vidya360_fee_student_invoices" name="All Invoices" parent="menu_vidya360_fee_invoices" action="action_vidya_fee_invoices" sequence="10"/>
+    <menuitem id="menu_vidya360_fee_generate_invoices" name="Generate Fees" parent="menu_vidya360_fee_invoices" action="action_vidya_fee_generate_wizard" sequence="20"/>
+</odoo>

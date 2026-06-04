@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_section_form_staff_inherit" model="ir.ui.view">
+        <field name="name">vidya.section.form.staff.inherit</field>
+        <field name="model">vidya.section</field>
+        <field name="inherit_id" ref="vidya360_core.view_vidya_section_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='capacity']" position="after">
+                <field name="class_teacher_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_vidya_section_tree_staff_inherit" model="ir.ui.view">
+        <field name="name">vidya.section.tree.staff.inherit</field>
+        <field name="model">vidya.section</field>
+        <field name="inherit_id" ref="vidya360_core.view_vidya_section_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='capacity']" position="after">
+                <field name="class_teacher_id"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="view_vidya_class_level_form_staff_inherit" model="ir.ui.view">
+        <field name="name">vidya.class.level.form.staff.inherit</field>
+        <field name="model">vidya.class.level</field>
+        <field name="inherit_id" ref="vidya360_core.view_vidya_class_level_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='section_ids']/list/field[@name='capacity']" position="after">
+                <field name="class_teacher_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

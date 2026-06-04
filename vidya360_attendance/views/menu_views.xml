@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_attendance_root" name="Attendance" sequence="30" web_icon="vidya360_attendance,static/description/icon.png"/>
+    
+    <menuitem id="menu_vidya360_attendance_sheets" name="Attendance Sheets" parent="menu_vidya360_attendance_root" action="action_vidya_attendance_sheet" sequence="10"/>
+    <menuitem id="menu_vidya360_attendance_records" name="Attendance Records" parent="menu_vidya360_attendance_root" action="action_vidya_attendance" sequence="20"/>
+</odoo>

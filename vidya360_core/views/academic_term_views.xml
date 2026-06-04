@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- We use inline tree in academic year form, but defining an action just in case -->
+</odoo>

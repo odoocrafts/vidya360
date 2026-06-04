@@ -1,0 +1,20 @@
+{
+    'name': 'Vidya 360 Hostel Management',
+    'version': '1.0',
+    'category': 'Education',
+    'summary': 'Manage School Hostels and Room Allocations',
+    'description': 'Hostel Management for Vidya 360',
+    'author': 'Vidya 360',
+    'depends': ['vidya360_core', 'vidya360_student', 'vidya360_staff', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/hostel_building_views.xml',
+        'views/hostel_room_views.xml',
+        'views/hostel_allocation_views.xml',
+        'views/menu_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

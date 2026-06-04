@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vidya360_certificate_root" name="Certificates" web_icon="vidya360_certificate,static/description/icon.png" sequence="50"/>
+
+    <menuitem id="menu_vidya360_certificate_requests" name="Requests" parent="menu_vidya360_certificate_root" sequence="10"/>
+    <menuitem id="menu_vidya360_certificate_request_list" name="All Requests" parent="menu_vidya360_certificate_requests" action="action_vidya_certificate_request" sequence="10"/>
+</odoo>

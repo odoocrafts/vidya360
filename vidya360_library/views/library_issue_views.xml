@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_library_issue_form" model="ir.ui.view">
+        <field name="name">vidya.library.issue.form</field>
+        <field name="model">vidya.library.issue</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_issue" string="Issue Book" type="object" invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="action_return" string="Return Book" type="object" invisible="state != 'issued'" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,issued,returned,overdue"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="book_id" readonly="state != 'draft'"/>
+                            <field name="member_type" widget="radio" options="{'horizontal': true}" readonly="state != 'draft'"/>
+                            <field name="student_id" invisible="member_type != 'student'" required="member_type == 'student'" readonly="state != 'draft'"/>
+                            <field name="staff_id" invisible="member_type != 'staff'" required="member_type == 'staff'" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="date_issue" readonly="state != 'draft'"/>
+                            <field name="date_due" readonly="state != 'draft'"/>
+                            <field name="date_return" readonly="1" invisible="state not in ('returned', 'overdue')"/>
+                            
+                            <field name="currency_id" invisible="1"/>
+                            <field name="fine_amount" invisible="state not in ('returned', 'overdue')"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vidya_library_issue_tree" model="ir.ui.view">
+        <field name="name">vidya.library.issue.tree</field>
+        <field name="model">vidya.library.issue</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'overdue'" decoration-success="state == 'returned'" decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="book_id"/>
+                <field name="member_type"/>
+                <field name="date_issue"/>
+                <field name="date_due"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'issued'" decoration-success="state == 'returned'" decoration-danger="state == 'overdue'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vidya_library_issue" model="ir.actions.act_window">
+        <field name="name">Book Issues / Returns</field>
+        <field name="res_model">vidya.library.issue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

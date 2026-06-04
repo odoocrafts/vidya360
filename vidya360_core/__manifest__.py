@@ -1,0 +1,22 @@
+{
+    'name': 'Vidya 360 Core',
+    'version': '19.0.1.0.0',
+    'summary': 'Core module for Vidya 360 School ERP',
+    'description': 'Provides core academic structure like Academic Year, Terms, Classes, and Subjects.',
+    'category': 'Education',
+    'author': 'Vidya 360',
+    'depends': ['base', 'mail'],
+    'data': [
+        'security/security_groups.xml',
+        'security/ir.model.access.csv',
+        'views/menu_views.xml',
+        'views/academic_year_views.xml',
+        'views/academic_term_views.xml',
+        'views/class_level_views.xml',
+        'views/section_views.xml',
+        'views/subject_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

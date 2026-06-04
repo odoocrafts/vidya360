@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_attendance_admin,vidya.attendance admin,model_vidya_attendance,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_vidya_attendance_principal,vidya.attendance principal,model_vidya_attendance,vidya360_core.group_vidya360_principal,1,1,1,1
+access_vidya_attendance_office,vidya.attendance office,model_vidya_attendance,vidya360_core.group_vidya360_office_staff,1,1,1,1
+access_vidya_attendance_teacher,vidya.attendance teacher,model_vidya_attendance,vidya360_core.group_vidya360_class_teacher,1,1,1,0
+access_vidya_attendance_student,vidya.attendance student,model_vidya_attendance,vidya360_core.group_vidya360_student,1,0,0,0
+access_vidya_attendance_parent,vidya.attendance parent,model_vidya_attendance,vidya360_core.group_vidya360_parent,1,0,0,0
+
+access_vidya_attendance_sheet_admin,vidya.attendance.sheet admin,model_vidya_attendance_sheet,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_vidya_attendance_sheet_principal,vidya.attendance.sheet principal,model_vidya_attendance_sheet,vidya360_core.group_vidya360_principal,1,1,1,1
+access_vidya_attendance_sheet_office,vidya.attendance.sheet office,model_vidya_attendance_sheet,vidya360_core.group_vidya360_office_staff,1,1,1,1
+access_vidya_attendance_sheet_teacher,vidya.attendance.sheet teacher,model_vidya_attendance_sheet,vidya360_core.group_vidya360_class_teacher,1,1,1,0

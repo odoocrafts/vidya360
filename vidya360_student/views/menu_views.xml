@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Students Menu -->
+    <menuitem id="menu_vidya360_students_root" name="Students" parent="vidya360_core.menu_vidya360_root" sequence="20"/>
+    
+    <menuitem id="menu_vidya360_students_main" name="Students" parent="menu_vidya360_students_root" action="action_vidya_student" sequence="10"/>
+</odoo>
