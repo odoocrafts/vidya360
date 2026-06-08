@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top-level Exams Menu -->
+    <menuitem id="menu_vidya_exam_root" name="Exams" sequence="55" web_icon="vidya360_exam,static/description/icon.png" groups="vidya360_core.group_vidya360_admin_staff,vidya360_core.group_vidya360_class_teacher,vidya360_core.group_vidya360_student"/>
+
+    <!-- Exams Submenu -->
+    <menuitem id="menu_vidya_exam_main" name="Exams" parent="menu_vidya_exam_root" action="action_vidya_exam" sequence="10"/>
+
+    <!-- Schedules Submenu -->
+    <menuitem id="menu_vidya_exam_schedules" name="Schedules" parent="menu_vidya_exam_root" action="action_vidya_exam_schedule" sequence="20"/>
+
+    <!-- Results Submenu -->
+    <menuitem id="menu_vidya_exam_results" name="Results" parent="menu_vidya_exam_root" action="action_vidya_exam_result" sequence="30"/>
+</odoo>

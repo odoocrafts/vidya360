@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vidya_exam_admin,vidya.exam.admin,model_vidya_exam,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_vidya_exam_schedule_admin,vidya.exam.schedule.admin,model_vidya_exam_schedule,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+access_vidya_exam_result_admin,vidya.exam.result.admin,model_vidya_exam_result,vidya360_core.group_vidya360_admin_staff,1,1,1,1
+
+access_vidya_exam_teacher,vidya.exam.teacher,model_vidya_exam,vidya360_core.group_vidya360_class_teacher,1,0,0,0
+access_vidya_exam_schedule_teacher,vidya.exam.schedule.teacher,model_vidya_exam_schedule,vidya360_core.group_vidya360_class_teacher,1,0,0,0
+access_vidya_exam_result_teacher,vidya.exam.result.teacher,model_vidya_exam_result,vidya360_core.group_vidya360_class_teacher,1,1,1,1
+
+access_vidya_exam_student,vidya.exam.student,model_vidya_exam,vidya360_core.group_vidya360_student,1,0,0,0
+access_vidya_exam_schedule_student,vidya.exam.schedule.student,model_vidya_exam_schedule,vidya360_core.group_vidya360_student,1,0,0,0
+access_vidya_exam_result_student,vidya.exam.result.student,model_vidya_exam_result,vidya360_core.group_vidya360_student,1,0,0,0
