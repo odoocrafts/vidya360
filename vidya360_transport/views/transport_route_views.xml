@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_transport_route_list" model="ir.ui.view">
+        <field name="name">vidya.transport.route.list</field>
+        <field name="model">vidya.transport.route</field>
+        <field name="arch" type="xml">
+            <list string="Transport Routes">
+                <field name="name"/>
+                <field name="start_point"/>
+                <field name="end_point"/>
+                <field name="distance"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vidya_transport_route_form" model="ir.ui.view">
+        <field name="name">vidya.transport.route.form</field>
+        <field name="model">vidya.transport.route</field>
+        <field name="arch" type="xml">
+            <form string="Transport Route">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Route Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="start_point"/>
+                            <field name="end_point"/>
+                        </group>
+                        <group>
+                            <field name="distance"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Additional Notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vidya_transport_route" model="ir.actions.act_window">
+        <field name="name">Routes</field>
+        <field name="res_model">vidya.transport.route</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

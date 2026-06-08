@@ -1,0 +1,20 @@
+{
+    'name': 'Vidya 360 Transport Management',
+    'version': '1.0',
+    'category': 'Education',
+    'summary': 'Manage School Transport Routes, Vehicles, and Allocations',
+    'description': 'Transport Management for Vidya 360',
+    'author': 'Vidya 360',
+    'depends': ['base', 'mail', 'vidya360_core', 'vidya360_student', 'vidya360_staff'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/transport_route_views.xml',
+        'views/transport_vehicle_views.xml',
+        'views/transport_allocation_views.xml',
+        'views/menu_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

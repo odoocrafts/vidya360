@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vidya_transport_vehicle_list" model="ir.ui.view">
+        <field name="name">vidya.transport.vehicle.list</field>
+        <field name="model">vidya.transport.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehicles">
+                <field name="name"/>
+                <field name="vehicle_model"/>
+                <field name="driver_name"/>
+                <field name="capacity"/>
+                <field name="route_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vidya_transport_vehicle_form" model="ir.ui.view">
+        <field name="name">vidya.transport.vehicle.form</field>
+        <field name="model">vidya.transport.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="License Plate"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="vehicle_model"/>
+                            <field name="capacity"/>
+                        </group>
+                        <group>
+                            <field name="driver_name"/>
+                            <field name="driver_phone"/>
+                            <field name="route_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vidya_transport_vehicle_kanban" model="ir.ui.view">
+        <field name="name">vidya.transport.vehicle.kanban</field>
+        <field name="model">vidya.transport.vehicle</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="driver_name"/>
+                <field name="capacity"/>
+                <field name="route_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_title">
+                                <strong><field name="name"/></strong>
+                            </div>
+                            <div>
+                                Driver: <field name="driver_name"/>
+                            </div>
+                            <div>
+                                Capacity: <field name="capacity"/>
+                            </div>
+                            <div>
+                                Route: <field name="route_id"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_vidya_transport_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">vidya.transport.vehicle</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

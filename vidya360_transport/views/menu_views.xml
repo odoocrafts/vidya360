@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top-level Transport Menu -->
+    <menuitem id="menu_vidya_transport_root" name="Transport" sequence="50" web_icon="vidya360_transport,static/description/icon.png" groups="vidya360_core.group_vidya360_admin_staff,vidya360_core.group_vidya360_class_teacher,vidya360_core.group_vidya360_student"/>
+
+    <!-- Allocations Submenu -->
+    <menuitem id="menu_vidya_transport_allocations" name="Allocations" parent="menu_vidya_transport_root" action="action_vidya_transport_allocation" sequence="10"/>
+
+    <!-- Routes Submenu -->
+    <menuitem id="menu_vidya_transport_routes" name="Routes" parent="menu_vidya_transport_root" action="action_vidya_transport_route" sequence="20"/>
+
+    <!-- Vehicles Submenu -->
+    <menuitem id="menu_vidya_transport_vehicles" name="Vehicles" parent="menu_vidya_transport_root" action="action_vidya_transport_vehicle" sequence="30"/>
+</odoo>
